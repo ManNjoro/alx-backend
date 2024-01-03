@@ -18,20 +18,20 @@ class BasicCache(BaseCaching):
         '''
         Assigns to the dictionary self.cache_data
         the item value for the key key.
-        
+
         If key or item is None, the function will not do anything.
         '''
         if key or item is None:
             pass
         self.cache_data.update({key: item})
-    
+
     def get(self, key):
         '''
         Retrieves the data from the cache using the key.
-        
+
         If key is None or key is not found in self.cache_data,
         the function will return None.
-        
+
         param key: The key to use when searching for the item in the cache.
         return: The item found in the cache or None if not found.
         '''

@@ -5,7 +5,7 @@ using Flask Babel.
 """
 
 from flask import Flask, render_template, request
-from flask_babel import Babel
+from flask_babel import Babel, gettext
 
 
 app = Flask(__name__)
@@ -39,9 +39,12 @@ def get_locale():
 @app.route('/')
 def hello():
     """
-    Render the home page template.
+    Render the home page template with translated strings.
     """
-    return render_template('2-index.html')
+    home_title = gettext("home_title")
+    home_header = gettext("home_header")
+    return render_template(
+        '3-index.html', home_title=home_title, home_header=home_header)
 
 
 if __name__ == '__main__':

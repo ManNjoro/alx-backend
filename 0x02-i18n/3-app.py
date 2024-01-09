@@ -24,7 +24,7 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """
     Determine the best matching language for the user
     based on the Accept-Language header.
@@ -36,7 +36,7 @@ def get_locale():
 
 
 @app.route('/')
-def hello():
+def hello() -> str:
     """
     Render the home page template with translated strings.
     """

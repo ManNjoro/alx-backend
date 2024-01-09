@@ -23,7 +23,10 @@ app.config.from_object(Config)
 
 
 @app.route('/')
-def hello():
+def hello() -> str:
+    """
+    Render the index template.
+    """
     return render_template('1-index.html')
 
 

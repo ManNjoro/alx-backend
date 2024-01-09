@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """
+A simple Flask application demonstrating internationalization (i18n)
+using Flask Babel.
 """
 
 from flask import Flask, render_template

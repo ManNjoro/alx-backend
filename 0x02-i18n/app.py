@@ -6,7 +6,7 @@ using Flask Babel.
 
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, format_datetime
-from datetime import datetime
+from typing import Optional, Dict
 import pytz
 
 
@@ -52,7 +52,7 @@ def get_locale() -> str:
 
 
 @babel.timezoneselector
-def get_timezone():
+def get_timezone() -> str:
     """
     Function to get the timezone
     """
@@ -69,7 +69,7 @@ def get_timezone():
             return app.config['BABEL_DEFAULT_TIMEZONE']
 
 
-def get_user():
+def get_user() -> Optional[Dict[str, Optional[str]]]:
     """
     Function to get user by ID
     """
@@ -80,7 +80,7 @@ def get_user():
 
 
 @app.before_request
-def before_request():
+def before_request() -> None:
     """
     Finds a user if any, and set it as a global on flask.g.user
     """

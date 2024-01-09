@@ -8,20 +8,19 @@ from flask import Flask, render_template, request
 from flask_babel import Babel, gettext
 
 
-app = Flask(__name__)
-babel = Babel(app)
-
-
 class Config(object):
     """
     A configuration class that sets up the application's settings.
     """
     LANGUAGES = ["en", "fr"]
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-app.config['BABEL_DEFAULT_LOCALE'] = Config.LANGUAGES[0]
-app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
+app = Flask(__name__)
 app.config.from_object(Config)
+app.url_map.strict_slashes = False
+babel = Babel(app)
 
 
 @babel.localeselector

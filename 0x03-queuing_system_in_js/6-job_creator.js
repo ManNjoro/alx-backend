@@ -2,7 +2,7 @@ const kue = require("kue");
 const push_notification_code = kue.createQueue();
 
 const job = push_notification_code
-  .create("", {
+  .create("push_notification_code", {
     phoneNumber: "0712345678",
     message: "Hello world",
   })
@@ -20,3 +20,4 @@ job.on("complete", () => {
 job.on("failed", (err) => {
   console.error("Notification job failed");
 });
+
